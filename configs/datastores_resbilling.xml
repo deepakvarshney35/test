@@ -1,0 +1,110 @@
+<data-store name="CLIENTS">
+    <field name="CLIENTID" type="INT"/>
+    <field name="USERNAME" type="STRING"/>
+    <field name="CUSTCODE" type="STRING"/>
+    <field name="NAME" type="STRING"/>
+    <field name="EMAIL" type="STRING"/>
+    <field name="CORPID" type="INT"/>
+    <field name="ENTRY_DATE" type="STRING"/>
+    <field name="PHONENUMBER" type="STRING"/>
+    <field name="SOURCE" type="STRING"/>
+    <field name="MOD_TS" type="STRING"/>
+    <key name="USERNAME" type="primary"/>
+</data-store>
+<data-store name="TRANSACTIONS">
+    <field name="TRANSID" type="INT"/>
+    <field name="OSID" type="INT"/>
+    <field name="TRANSCODE" type="STRING"/>
+    <field name="CLIENTID" type="INT"/>
+    <field name="DATE" type="STRING"/>
+    <field name="ENTRYBY" type="INT"/>
+    <field name="WALKINBY" type="INT"/>
+    <field name="CITYID" type="INT"/>
+    <field name="OCITY" type="STRING"/>
+    <field name="SALETYPE" type="STRING"/>
+    <field name="TRANSTYPE" type="STRING"/>
+    <field name="OVERSEAS" type="STRING"/>
+    <field name="CURRENCY" type="STRING"/>
+    <field name="DUMMY" type="STRING"/>
+    <field name="CORPCOLLECT" type="STRING"/>
+    <field name="CORPID" type="INT"/>
+    <field name="TRANSTATUS" type="STRING"/>
+    <field name="ARAMEX_EXID" type="INT"/>
+    <field name="ABID" type="INT"/>
+    <field name="PAYMENT_ARAMEX" type="STRING"/>
+    <field name="TOTAL_AMOUNT" type="STRING"/>
+    <field name="DISCOUNT" type="STRING"/>
+    <field name="DISC_REASON" type="STRING"/>
+    <field name="COMMENTS" type="STRING"/>
+    <field name="MOD_DATE" type="STRING"/>
+    <field name="AWB_NO" type="STRING"/>
+    <field name="ONLINE_PAY_STATUS" type="STRING"/>
+    <field name="FAIL_ASSIGN_TO" type="INT"/>
+    <field name="FAIL_ASSIGN_FROM" type="INT"/>
+    <field name="ASSIGN_DATE" type="STRING"/>
+    <field name="SOURCE" type="STRING"/>
+    <field name="FOT_SRC" type="STRING"/>
+    <field name="EASYBILL_ID" type="STRING"/>
+    <field name="OLD_CLIENT" type="STRING"/>
+    <forgein-key name="CLIENTID" refer="resbilling.CLIENTS.CLIENTID"/>
+</data-store>
+<data-store name="TRANS_SERVICES">
+    <field name="TSID" type="INT"/>
+    <field name="TRANSID" type="INT"/>
+    <field name="SERVICEID" type="INT"/>
+    <field name="ICVID" type="INT"/>
+    <field name="START_DATE" type="STRING"/>
+    <field name="EXPEND_DATE" type="STRING"/>
+    <field name="ACTUALEND_DATE" type="STRING"/>
+    <field name="SERVSTATUS" type="STRING"/>
+    <field name="STATUS_DATE" type="STRING"/>
+    <field name="STATUSBY" type="INT"/>
+    <field name="ASSIGNEDTO" type="INT"/>
+    <field name="PARENTSERVID" type="INT"/>
+    <field name="SUBSCRIPTION" type="STRING"/>
+    <field name="DRAFTSTART_DATE" type="STRING"/>
+    <field name="SUBSCRIPTION_START" type="STRING"/>
+    <field name="SUBSCRIPTION_END" type="STRING"/>
+    <field name="COMMENT" type="STRING"/>
+    <field name="RESDEV_REWORK" type="STRING"/>
+    <field name="RESDEV_LEVEL" type="STRING"/>
+    <field name="ALLOCATION_DATE" type="STRING"/>
+    <field name="RESDEV_TSID" type="INT"/>
+    <field name="APPROVED_BY" type="INT"/>
+    <field name="AUTOAPPLY_STATUS" type="INT"/>
+    <field name="MOD_TS" type="STRING"/>
+    <forgein-key name="TRANSID" refer="resbilling.TRANSACTIONS.TRANSID"/>
+</data-store>
+<data-store name="SUBSERVICE">
+    <field name="SUBSERVID" type="INT"/>
+    <field name="TESTID" type="INT"/>
+    <field name="SERVICEID" type="INT"/>
+    <field name="NAME" type="STRING"/>
+    <field name="SUBSERVICETYPE" type="STRING"/>
+    <field name="DESCRIPTION" type="STRING"/>
+    <field name="INR" type="STRING"/>
+    <field name="USD" type="STRING"/>
+    <field name="VALID" type="STRING"/>
+    <field name="CLIENT_DISPLAY" type="STRING"/>
+    <field name="ADMIN_DISPLAY" type="STRING"/>
+    <field name="MOD_DATE" type="STRING"/>
+    <key name="TESTID" type="primary"/>
+    <forgein-key name="SUBSERVID" refer="certifications.SCORECARD.SUBSERVID"/>
+</data-store>
+<data-store name="TRANS_SUB_SERVICES">
+    <field name="TSSID" type="INT"/>
+    <field name="TSID" type="INT"/>
+    <field name="CUSTCODE" type="STRING"/>
+    <field name="SUBSERVID" type="INT"/>
+    <field name="NAME_FOR_CERT" type="STRING"/>
+    <field name="DATE" type="STRING"/>
+    <field name="SUBSERVSTATUS" type="STRING"/>
+    <field name="SUBSCRIPTION" type="STRING"/>
+    <field name="FRESHNESS" type="STRING"/>
+    <field name="COMMENT" type="STRING"/>
+    <field name="SESSION_TOKEN" type="STRING"/>
+    <field name="MOD_TS" type="STRING"/>
+    <forgein-key name="SUBSERVID" refer="resbilling.SUBSERVICE.SUBSERVID"/>
+    <forgein-key name="TSID" refer="resbilling.TRANS_SERVICES.TSID"/>
+</data-store>
+
