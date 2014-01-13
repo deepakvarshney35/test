@@ -32,9 +32,9 @@
 <data-store name="REPORTS">
     <field name="TSSID" type="INT"/>
     <field name="TNSCID" type="INT"/>
-    <field name="PROCTOR" type="BLOB"/>
-    <field name="CERTIFICATE" type="BLOB"/>
-    <field name="JOBREPORT" type="BLOB"/>
+    <field name="PROCTOR" type="STRING"/>
+    <field name="CERTIFICATE" type="STRING"/>
+    <field name="JOBREPORT" type="STRING"/>
     <field name="MOD_TS" type="STRING"/>
     <forgein-key name="TSSID" refer="certifications.SCORECARD.TSSID"/>
 </data-store>
