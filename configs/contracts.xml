@@ -377,6 +377,13 @@
                 <where field="certifications.REPORTS.TSSID" parameter="TSSID"/>
             </step>
         </contract>
+        <contract name="getDummyJobReport">
+            <parameter order="1" id="1" name="TSSID" type="INT"/>
+            <step type="select" order="1" >
+                <select fields="certifications.REPORTS.JOBREPORT"/>
+                <where field="certifications.REPORTS.TSSID" parameter="TSSID"/>
+            </step>
+        </contract>
 
 
 
