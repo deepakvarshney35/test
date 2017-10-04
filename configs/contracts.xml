@@ -384,10 +384,10 @@
 		<!--Test Start -->
 		
 		<contract name="getAllTestDetails2">
-            <parameter order="1" id="1" name="TSSID" type="STRING"/>
+            <parameter order="1" id="1" name="USERNAME" type="STRING"/>
             <step type="select" order="1" >
-                <select fields="certifications.SCORECARD.USERNAME\,resbilling.SERVICECATEGORY.NAME\,resbilling.CERTHIGHLIGHTERSTATUS.CERTNAME\,resbilling.TRANS_SERVICES.SUBSCRIPTION_END"/>
-				<where field="certifications.SCORECARD.TSSID" parameter="TSSID"/>
+                <select fields="certifications.SCORECARD.USERNAME\,resbilling.CERTHIGHLIGHTERSTATUS.CERTNAME\,resbilling.TRANS_SERVICES.SUBSCRIPTION_END"/>
+				<where field="certifications.SCORECARD.USERNAME" parameter="USERNAME"/>
 			</step>
 		</contract>
 		

@@ -73,7 +73,6 @@
     <field name="EXIT_DATE" type="DATE"/>
     <field name="VALID" type="STRING"/>
     <field name="TYPE" type="STRING"/>
-	<forgein-key name="SCID" refer="resbilling.SERVICE.SCID"/>
 </data-store>
 <data-store name="SERVICE">
     <field name="SERVICEID" type="INT"/>
@@ -111,7 +110,6 @@
 	<field name="SFILTER" type="STRING"/>
 	<field name="DISCOUNTFLAG" type="STRING"/>
 	<field name="COMBODISCOUNT" type="INT"/>
-	<forgein-key name="SERVICEID" refer="resbilling.TRANS_SERVICES.SERVICEID"/>
 </data-store>
 <data-store name="TRANS_SERVICES">
     <field name="TSID" type="INT"/>
