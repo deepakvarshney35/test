@@ -48,6 +48,71 @@
     <field name="OLD_CLIENT" type="STRING"/>
     <forgein-key name="CLIENTID" refer="resbilling.CLIENTS.CLIENTID"/>
 </data-store>
+
+<data-store name="SUBSERVICE">
+    <field name="SUBSERVID" type="INT"/>
+    <field name="TESTID" type="INT"/>
+    <field name="SERVICEID" type="INT"/>
+    <field name="NAME" type="STRING"/>
+    <field name="SUBSERVICETYPE" type="STRING"/>
+    <field name="DESCRIPTION" type="STRING"/>
+    <field name="INR" type="STRING"/>
+    <field name="USD" type="STRING"/>
+    <field name="VALID" type="STRING"/>
+    <field name="CLIENT_DISPLAY" type="STRING"/>
+    <field name="ADMIN_DISPLAY" type="STRING"/>
+    <field name="MOD_DATE" type="STRING"/>
+    <key name="TESTID" type="primary"/>
+    <forgein-key name="SUBSERVID" refer="certifications.SCORECARD.SUBSERVID"/>
+</data-store>
+
+<data-store name="SERVICECATEGORY">
+    <field name="SCID" type="INT"/>
+    <field name="NAME" type="STRING"/>
+    <field name="ENTRY_DATE" type="DATE"/>
+    <field name="EXIT_DATE" type="DATE"/>
+    <field name="VALID" type="STRING"/>
+    <field name="TYPE" type="STRING"/>
+	<forgein-key name="SCID" refer="resbilling.SERVICE.SCID"/>
+</data-store>
+<data-store name="SERVICE">
+    <field name="SERVICEID" type="INT"/>
+    <field name="SCID" type="INT"/>
+    <field name="NAME" type="STRING"/>
+    <field name="DESCRIPTION" type="STRING"/>
+    <field name="QUANTITY" type="INT"/>
+    <field name="DURATION" type="INT"/>
+	<field name="MODDATE" type="DATE"/>
+	<field name="COMBOPACK" type="STRING"/>
+    <field name="INR" type="INT"/>
+    <field name="USD" type="INT"/>
+    <field name="REM_FREQ" type="INT"/>
+    <field name="REM_MAX" type="INT"/>
+    <field name="ONLINE_DAYS" type="INT"/>
+	<field name="OFFLINE_DAYS" type="INT"/>
+	<field name="SERVICE_FREQ" type="INT"/>
+    <field name="SURVEY_FREQ" type="INT"/>
+	<field name="CODEID" type="INT"/>
+	<field name="VALID" type="STRING"/>
+    <field name="END_DATE" type="DATE"/>
+    <field name="CORPINR" type="INT"/>
+    <field name="CORPUSD" type="INT"/>
+    <field name="CLIENT_DISPLAY" type="STRING"/>
+    <field name="ADMIN_DISPLAY" type="STRING"/>
+	<field name="TITLE" type="STRING"/>
+	<field name="SERVICETYPE" type="STRING"/>
+    <field name="SUBSERVFLAG" type="STRING"/>
+	<field name="XCLUDTAXINR" type="STRING"/>
+	<field name="XCLUDTAXUSD" type="STRING"/>
+    <field name="PRIORITY" type="STRING"/>
+	<field name="PARTNER_SHARE_TYPE" type="STRING"/>
+	<field name="PARTNER_SHARE_INR" type="INT"/>
+    <field name="PARTNER_SHARE_USD" type="INT"/>
+	<field name="SFILTER" type="STRING"/>
+	<field name="DISCOUNTFLAG" type="STRING"/>
+	<field name="COMBODISCOUNT" type="INT"/>
+	<forgein-key name="SERVICEID" refer="resbilling.TRANS_SERVICES.SERVICEID"/>
+</data-store>
 <data-store name="TRANS_SERVICES">
     <field name="TSID" type="INT"/>
     <field name="TRANSID" type="INT"/>
@@ -74,23 +139,9 @@
     <field name="AUTOAPPLY_STATUS" type="INT"/>
     <field name="MOD_TS" type="STRING"/>
     <forgein-key name="TRANSID" refer="resbilling.TRANSACTIONS.TRANSID"/>
+	<forgein-key name="TSID" refer="certifications.SCORECARD.TSSID"/>
 </data-store>
-<data-store name="SUBSERVICE">
-    <field name="SUBSERVID" type="INT"/>
-    <field name="TESTID" type="INT"/>
-    <field name="SERVICEID" type="INT"/>
-    <field name="NAME" type="STRING"/>
-    <field name="SUBSERVICETYPE" type="STRING"/>
-    <field name="DESCRIPTION" type="STRING"/>
-    <field name="INR" type="STRING"/>
-    <field name="USD" type="STRING"/>
-    <field name="VALID" type="STRING"/>
-    <field name="CLIENT_DISPLAY" type="STRING"/>
-    <field name="ADMIN_DISPLAY" type="STRING"/>
-    <field name="MOD_DATE" type="STRING"/>
-    <key name="TESTID" type="primary"/>
-    <forgein-key name="SUBSERVID" refer="certifications.SCORECARD.SUBSERVID"/>
-</data-store>
+
 <data-store name="TRANS_SUB_SERVICES">
     <field name="TSSID" type="INT"/>
     <field name="TSID" type="INT"/>
@@ -108,3 +159,13 @@
     <forgein-key name="TSID" refer="resbilling.TRANS_SERVICES.TSID"/>
 </data-store>
 
+<data-store name="CERTHIGHLIGHTERSTATUS">
+    <field name="TSID" type="INT"/>
+    <field name="CUSTCODE" type="STRING"/>
+    <field name="TRANSCODE" type="STRING"/>
+    <field name="STATUS" type="STRING"/>
+    <field name="CERTNAME" type="STRING"/>
+    <field name="COMMENT" type="STRING"/>
+	<field name="MODDATE" type="STRING"/>
+	<forgein-key name="TSID" refer="resbilling.TRANS_SERVICES.TSID"/>
+</data-store>
