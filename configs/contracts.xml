@@ -82,23 +82,7 @@
 				<post-part data-store="certifications.SCORECARD" value=" order by SCORE desc"/>
 			</step>
 		</contract>
-		
-		
-		
-		<!-- Test Start -->
-		
-	<contract name="getAllTestDetails2">
-		<parameter order="1" id="1" name="TSSID" type="STRING"/>
-		<step type="select" order="1" >
-			<select fields="certifications.SCORECARD.USERNAME\,resbilling.SERVICECATEGORY.NAME\,resbilling.CERTHIGHLIGHTERSTATUS.CERTNAME\,resbilling.TRANS_SERVICES.SUBSCRIPTION_END"/>
-			<where field="certifications.SCORECARD.TSSID" parameter="TSSID"/>
-		</step>
-	</contract>
-		
-		<!--Test End -->
-		
-		
-		
+	
 		<contract name="getTestLabel">
 			<parameter order="1" id="1" name="USERNAME" type="STRING"/>
 			<parameter order="2" id="2" name="PUBLISH_NAUK" type="STRING" value="Y"/>
@@ -394,6 +378,23 @@
                 <where field="certifications.REPORTS.TSSID" parameter="TSSID"/>
             </step>
         </contract>
+		
+			
+		
+		<!--Test Start -->
+		
+		<contract name="getAllTestDetails2">
+            <parameter order="1" id="1" name="TSSID" type="STRING"/>
+            <step type="select" order="1" >
+                <select fields="certifications.SCORECARD.USERNAME\,resbilling.SERVICECATEGORY.NAME\,resbilling.CERTHIGHLIGHTERSTATUS.CERTNAME\,resbilling.TRANS_SERVICES.SUBSCRIPTION_END"/>
+				<where field="certifications.SCORECARD.TSSID" parameter="TSSID"/>
+			</step>
+		</contract>
+		
+		<!--Test End -->
+		
+		
+		
         <contract name="getDummyJobReport">
             <parameter order="1" id="1" name="TSSID" type="INT"/>
             <step type="select" order="1" >
