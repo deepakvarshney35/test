@@ -69,12 +69,10 @@
             <parameter order="2" id="2" name="PUBLISH_NAUK" type="STRING" value="Y"/>
             <parameter order="3" id="3" name="PR_FETCHED" type="STRING" value="Y"/>
             <parameter order="4" id="4" name="JREP_FETCHED" type="STRING" value="Y"/>
-            <step type="select" order="1" >
+           
+		   <step type="select" order="1" >
                 <select fields="certifications.SCORECARD.SCORE\,certifications.SCORECARD.SUBSERVID\,certifications.SCORECARD.PERCENTAGE\,certifications.SCORECARD.TSSID\,certifications.SCORECARD.COMPLETION_DT\,resbilling.SUBSERVICE.NAME"/>
-				<!--
-								<select fields="certifications.SCORECARD.SCORE\,certifications.SCORECARD.PERCENTAGE\,certifications.SCORECARD.TSSID\,certifications.SCORECARD.COMPLETION_DT\,certifications.PCNT_PCNTL_MAP.PERCENTILE"/>
-				-->
-								<!--<select fields="certifications.SCORECARD.SCORE\,certifications.SCORECARD.SUBSERVID\,certifications.SCORECARD.PERCENTAGE\,certifications.SCORECARD.TSSID\,certifications.SCORECARD.COMPLETION_DT\,certifications.PCNT_PCNTL_MAP.PERCENTILE\,resbilling.SUBSERVICE.NAME"/>-->
+			
 				<where field="certifications.SCORECARD.USERNAME" parameter="USERNAME"/>
 				<where field="certifications.SCORECARD.PUBLISH_NAUK" parameter="PUBLISH_NAUK"/>
 				<where field="certifications.SCORECARD.PR_FETCHED" parameter="PR_FETCHED"/>
@@ -82,6 +80,20 @@
 				<post-part data-store="certifications.SCORECARD" value=" order by SCORE desc"/>
 			</step>
 		</contract>
+		
+			<!--Test Start -->
+		
+	<!-- 	<contract name="getAllTestDetails2">
+            <parameter order="1" id="1" name="USERNAME" type="STRING"/>
+            <step type="select" order="1" >
+                <select fields="certifications.SCORECARD.USERNAME\,resbilling.CERTHIGHLIGHTERSTATUS.CERTNAME\,resbilling.TRANS_SERVICES.SUBSCRIPTION_END"/>
+				<where field="certifications.SCORECARD.USERNAME" parameter="USERNAME"/>
+			</step>
+		</contract>
+		 -->
+		<!--Test End -->
+		
+		
 	
 		<contract name="getTestLabel">
 			<parameter order="1" id="1" name="USERNAME" type="STRING"/>
@@ -380,20 +392,6 @@
         </contract>
 		
 			
-		
-		<!--Test Start -->
-		
-		<contract name="getAllTestDetails2">
-            <parameter order="1" id="1" name="USERNAME" type="STRING"/>
-            <step type="select" order="1" >
-                <select fields="certifications.SCORECARD.USERNAME\,resbilling.CERTHIGHLIGHTERSTATUS.CERTNAME\,resbilling.TRANS_SERVICES.SUBSCRIPTION_END"/>
-				<where field="certifications.SCORECARD.USERNAME" parameter="USERNAME"/>
-			</step>
-		</contract>
-		
-		<!--Test End -->
-		
-		
 		
         <contract name="getDummyJobReport">
             <parameter order="1" id="1" name="TSSID" type="INT"/>
