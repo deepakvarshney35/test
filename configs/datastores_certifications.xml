@@ -20,6 +20,32 @@
     <field name="MOD_TS" type="STRING"/>
     <forgein-key name="TSSID" refer="resbilling.TRANS_SUB_SERVICES.TSSID"/>
 </data-store>
+
+<!-- SCORECARD_WITH_SUBSERVICE DS with Extra Field "NAME" when JOIN between certification.SCORECARD and resbilling.SUBSERVICE -->
+<data-store name="SCORECARD_WITH_SUBSERVICE">
+    <field name="TNSCID" type="INT"/>
+    <field name="TSSID" type="INT"/>
+    <field name="USERNAME" type="STRING"/>
+    <field name="SUBSERVID" type="INT"/>
+    <field name="SCORE" type="STRING"/>
+    <field name="PERCENTAGE" type="INT"/>
+    <field name="AVG_SCORE" type="INT"/>
+    <field name="RESULT" type="STRING"/>
+    <field name="COMPLETION_DT" type="STRING"/>
+    <field name="PUBLISH_NAUK" type="STRING"/>
+    <field name="PUBLISH_NAUK_DT" type="STRING"/>
+    <field name="PUBLISH_FN" type="STRING"/>
+    <field name="PUBLISH_FN_DT" type="STRING"/>
+    <field name="FB_FETCHED" type="STRING"/>
+    <field name="PR_FETCHED" type="STRING"/>
+    <field name="JREP_FETCHED" type="STRING"/>
+    <field name="CERT_FETCHED" type="STRING"/>
+    <field name="CERT_SENT" type="STRING"/>
+    <field name="MOD_TS" type="STRING"/>
+	<field name="NAME" type="STRING"/>
+    <forgein-key name="TSSID" refer="resbilling.TRANS_SUB_SERVICES.TSSID"/>
+</data-store>
+
 <data-store name="PCNT_PCNTL_MAP">
     <field name="SUBSERVID" type="INT"/>
     <field name="TESTID" type="INT"/>
