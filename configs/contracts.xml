@@ -65,7 +65,7 @@
             </step>
         </contract>     
 		
-		<!-- OLD Contract getAllTestDetails: Jaswinder(24-Nov-2017). See below New Contract. 
+		<!-- OLD Contract getAllTestDetails: Jaswinder(24-Nov-2017). See below New Contract. 	-->
        <contract name="getAllTestDetails">
             <parameter order="1" id="1" name="USERNAME" type="STRING"/>
             <parameter order="2" id="2" name="PUBLISH_NAUK" type="STRING" value="Y"/>
@@ -80,10 +80,10 @@
 					<post-part data-store="certifications.SCORECARD" value=" order by SCORE desc"/>
 			</step>
 		</contract>
-		-->
+	
 		
 		<!-- New Contract getAllTestDetails: Jaswinder(24-Nov-2017) Note - Service Response Change for the field "resbilling.SUBSERVICE.NAME". Rest fields will be same as old response -->
-		 <contract name="getAllTestDetails">
+		 <contract name="getAllTestDetails2">
             <parameter order="1" id="1" name="USERNAME" type="STRING"/>
             <parameter order="2" id="2" name="PUBLISH_NAUK" type="STRING" value="Y"/>
             <parameter order="3" id="3" name="PR_FETCHED" type="STRING" value="Y"/>
