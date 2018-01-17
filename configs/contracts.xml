@@ -66,7 +66,7 @@
         </contract>     
 		
 		<!-- OLD Contract getAllTestDetails: Jaswinder(24-Nov-2017). See below New Contract. 	-->
-       <contract name="getAllTestDetails">
+     <!-- <contract name="getAllTestDetails">
             <parameter order="1" id="1" name="USERNAME" type="STRING"/>
             <parameter order="2" id="2" name="PUBLISH_NAUK" type="STRING" value="Y"/>
             <parameter order="3" id="3" name="PR_FETCHED" type="STRING" value="Y"/>
@@ -79,19 +79,17 @@
 					<where field="certifications.SCORECARD.JREP_FETCHED" parameter="JREP_FETCHED"/>
 					<post-part data-store="certifications.SCORECARD" value=" order by SCORE desc"/>
 			</step>
-		</contract>
-	
-		
+		</contract> -->
+	   
 		<!-- New Contract getAllTestDetails: Jaswinder(24-Nov-2017) Note - Service Response Change for the field "resbilling.SUBSERVICE.NAME". Rest fields will be same as old response -->
-		 <contract name="getAllTestDetails2">
+		 <contract name="getAllTestDetails">
             <parameter order="1" id="1" name="USERNAME" type="STRING"/>
             <parameter order="2" id="2" name="PUBLISH_NAUK" type="STRING" value="Y"/>
             <parameter order="3" id="3" name="PR_FETCHED" type="STRING" value="Y"/>
             <parameter order="4" id="4" name="JREP_FETCHED" type="STRING" value="Y"/>
-			 <parameter order="4" id="4" name="CHK_EXPIRY" type="STRING" value="N"/>
-
+			 <parameter order="5" id="5" name="CHK_EXPIRY" type="STRING" value="N"/>
             <step type="hard-coded" order="1" >
-				<query type="select" order="1" driver="certifications" datastore="SCORECARD_WITH_SUBSERVICE" string="select certification.SCORECARD.SCORE\,certification.SCORECARD.SUBSERVID\,certification.SCORECARD.PERCENTAGE\,certification.SCORECARD.TSSID\,certification.SCORECARD.COMPLETION_DT\,resbilling.SUBSERVICE.NAME from certification.SCORECARD left join resbilling.SUBSERVICE on certification.SCORECARD.SUBSERVID=resbilling.SUBSERVICE.SUBSERVID where certification.SCORECARD.USERNAME=@expr(USERNAME) and certification.SCORECARD.PUBLISH_NAUK=@expr(PUBLISH_NAUK) and certification.SCORECARD.PR_FETCHED=@expr(PR_FETCHED) and certification.SCORECARD.JREP_FETCHED=@expr(JREP_FETCHED)  and (case when @expr(CHK_EXPIRY)='Y' then certification.SCORECARD.COMPLETION_DT >= now() else 1 = 1 end) order by SCORE desc">
+				<query type="select" order="1" driver="certifications" datastore="SCORECARD" string="select certification.SCORECARD.SCORE\,certification.SCORECARD.PERCENTAGE\,certification.SCORECARD.COURSE_NAME\,certification.SCORECARD.YEAR\,certification.SCORECARD.SERVICE_TYPE\,certification.SCORECARD.SUBSERVID\,certification.SCORECARD.TSSID\,certification.SCORECARD.COMPLETION_DT\,resbilling.SUBSERVICE.NAME from certification.SCORECARD left join resbilling.SUBSERVICE on certification.SCORECARD.SUBSERVID=resbilling.SUBSERVICE.SUBSERVID where certification.SCORECARD.USERNAME=@expr(USERNAME) and certification.SCORECARD.PUBLISH_NAUK=@expr(PUBLISH_NAUK) and certification.SCORECARD.PR_FETCHED=@expr(PR_FETCHED) and certification.SCORECARD.JREP_FETCHED=@expr(JREP_FETCHED)  and (case when @expr(CHK_EXPIRY)='Y' then certification.SCORECARD.COMPLETION_DT >= now() else 1 = 1 end) order by SCORE desc">
 				 </query>
 			</step>
 		</contract>
