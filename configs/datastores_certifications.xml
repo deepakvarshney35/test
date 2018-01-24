@@ -22,6 +22,7 @@
 	<field name="COURSE_NAME" type="STRING"/>
 	<field name="SERVICE_TYPE" type="STRING"/>
 	<field name="YEAR" type="STRING"/>	
+	<field name="VENDOR_NAME" type="STRING"/>
     <forgein-key name="TSSID" refer="resbilling.TRANS_SUB_SERVICES.TSSID"/>
 </data-store>
 
